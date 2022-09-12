@@ -1,28 +1,69 @@
 package com.objetos;
 
 class Auto {
-    int puertas;
-    String marca = "ford";
-    private boolean cerokm = false;
-    String fechaFabricacion = "23/04/1970";
+    private int puertas;
+    private String marca;
+    private boolean cerokm;
+    private String fechaFabricacion;
 
-    private int kilometraje() {
-        return 10000;
+    public Auto() {
+        this.puertas = 5;
+        this.marca = "ford";
+        this.cerokm = false;
+        this.fechaFabricacion = "17/08/1990";
+    }
+
+    public Auto(int newPuerta, String newMarca, Boolean newCeroKM, String newFechaFabricacion){
+        this.puertas = newPuerta;
+        this.marca = newMarca;
+        this.cerokm = newCeroKM;
+        this.fechaFabricacion = newFechaFabricacion;
+    }
+
+    private int kilometraje(boolean ceroKM) {
+        if(ceroKM){
+            return 0;
+        } else {
+            return 10000;
+        }
     }
 
     public void modelo() {
-        System.out.println("fiesta");
-        System.out.println(marca);
-        System.out.println(cerokm);
-        System.out.println(kilometraje());
+        System.out.println(kilometraje(cerokm));
+    }
+
+    public int getPuertas() {
+        return puertas;
+    }
+
+    public String getMarca(){
+        return marca;
+    }
+
+    public void setPuertas(int newPuertas){
+        this.puertas = newPuertas;
+    }
+
+    public void setMarca(String newMarca){
+        this.marca = newMarca;
+    }
+
+    public String toString(){
+        return this.puertas + " " + this.marca + " " + this.cerokm + " " + this.fechaFabricacion;
     }
 }
 
 class DemoAuto {
     public static void main( String[] args ){
         Auto a = new Auto();
-        System.out.println(a.puertas);
-        System.out.println(a.fechaFabricacion);
+        Auto a2 = new Auto(3, "fiat", true, "20/05/2022");
+        System.out.println(a.toString());
         a.modelo();
+        a.setPuertas(4);
+        System.out.println(a.getPuertas());
+        System.out.println(a2.getMarca());
+        a2.setMarca("Mercedes");
+        System.out.println(a2.toString());
+        a2.modelo();
     }
 }
