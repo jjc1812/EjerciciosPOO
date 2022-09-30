@@ -21,7 +21,7 @@ class DemoAuto {
         String inputColor = input.next();
         System.out.println("Ingrese la peso:");
         int inputPeso = input.nextInt();
-        
+
         Auto a2 = new Auto(inputPuerta, inputMarca, inputCeroKM, inputFechaFabricacion, inputMotor, inputColor, inputPeso);
         Vehiculos a3 = new Auto(4, "ferrari", false, "10/07/1980", "V6", "rojo", 700);
         System.out.println(a.toString());
@@ -34,5 +34,7 @@ class DemoAuto {
         a2.modelo();
         System.out.println(a2.pesoNeto(10));
         System.out.println(a3.toString());
+
+        input.close();
     }
 }
