@@ -35,6 +35,7 @@ class DemoAuto {
         System.out.println(a2.pesoNeto(10));
         System.out.println(a3.toString());
         a3.patente();
+        System.out.println("litros nafta: "+a2.cargarCombustible(10));
 
         input.close();
     }

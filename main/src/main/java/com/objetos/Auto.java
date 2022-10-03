@@ -1,6 +1,6 @@
 package com.objetos;
 
-class Auto extends Vehiculos{
+class Auto extends Vehiculos implements Combustible{
     private int puertas;
     private String marca;
     private boolean cerokm;
@@ -33,6 +33,14 @@ class Auto extends Vehiculos{
     @Override
     public void patente() {
         System.out.println("ABC 123");
+    }
+
+    @Override
+    public int cargarCombustible(int litrosCombustible) {
+        if(litrosCombustible<CARGA_MAXIMA){
+            return litrosCombustible;
+        }
+        return 0;
     }
 
     private int kilometraje(boolean ceroKM) {
