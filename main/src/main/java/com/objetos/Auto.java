@@ -30,6 +30,11 @@ class Auto extends Vehiculos{
         this.fechaFabricacion = newFechaFabricacion;
     }
 
+    @Override
+    public void patente() {
+        System.out.println("ABC 123");
+    }
+
     private int kilometraje(boolean ceroKM) {
         if(ceroKM){
             return 0;

@@ -34,6 +34,7 @@ class DemoAuto {
         a2.modelo();
         System.out.println(a2.pesoNeto(10));
         System.out.println(a3.toString());
+        a3.patente();
 
         input.close();
     }

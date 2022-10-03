@@ -1,6 +1,6 @@
 package com.objetos;
 
-public class Vehiculos {
+public abstract class Vehiculos {
     protected String motor;
     protected String color;
     protected int peso;
@@ -20,4 +20,6 @@ public class Vehiculos {
     public int pesoNeto(int pesoCarga){
         return pesoCarga+peso;
     }
+
+    public abstract void patente();
 }
