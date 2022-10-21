@@ -40,9 +40,45 @@ class DemoAuto {
         a3.patente();
         System.out.println("litros nafta: "+autos.get(1).cargarCombustible(10));
 
-        for(int i = 0; i < autos.size(); i++){
-            System.out.println(autos.get(i).toString());
+        for(int i = 0; i < autos.size(); i++){        
+
+            switch(autos.get(i).getMarca()){
+                case "ford":
+                    System.out.println("es un ford");
+                    break;
+                case "ferrari":
+                    System.out.println("es un ferrari");
+                    break;
+                case "Mercedes":
+                    System.out.println("es un Mercedes");
+                    break;
+                default:
+                    System.out.println("es un importado");
+                    break;
+            }
+
         }
+
+        int x = 0;
+
+        while(x < autos.size()){
+            if(autos.get(x).getMarca() == "ford"){
+                System.out.println("es un ford");
+            } else if(autos.get(x).getMarca() == "ferrari"){
+                System.out.println("es un ferrari");
+            } else if(autos.get(x).getMarca() == "Mercedes"){
+                System.out.println("es un Mercedes");
+            } else {
+                System.out.println("es un importado");
+            }
+
+            x++;
+        }
+
+        do{
+            x++;
+            System.out.println(x);
+        } while(x < 10);
 
         input.close();
     }
