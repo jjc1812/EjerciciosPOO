@@ -1,13 +1,17 @@
 package com.objetos;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 class DemoAuto {
     public static void main( String[] args ){
         Scanner input = new Scanner(System.in);
 
-        ArrayList<Auto> autos = new ArrayList<Auto>(); 
+        ArrayList<Auto> autos = new ArrayList<Auto>();
+
+        Map<Integer, Auto> autosMapping = new HashMap<Integer, Auto>();
 
         autos.add(new Auto());
         System.out.println("Ingrese las puertas:");
@@ -62,18 +66,19 @@ class DemoAuto {
         int x = 0;
 
         while(x < autos.size()){
-            if(autos.get(x).getMarca() == "ford"){
-                System.out.println("es un ford");
-            } else if(autos.get(x).getMarca() == "ferrari"){
-                System.out.println("es un ferrari");
-            } else if(autos.get(x).getMarca() == "Mercedes"){
-                System.out.println("es un Mercedes");
-            } else {
-                System.out.println("es un importado");
-            }
+
+            autosMapping.put(x, autos.get(x));
+            System.out.println("get mapping normal:");
+            System.out.println(autosMapping.get(x));
+            System.out.println("get or default:");
+            System.out.println(autosMapping.getOrDefault(4, new Auto()));
 
             x++;
         }
+
+        // autosMapping.forEach((k,v)-> System.out.println("clave: " + k + " valor: " + v.toString()));
+
+        autosMapping.remove(1);
 
         do{
             x++;
