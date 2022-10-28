@@ -17,6 +17,7 @@ public class DemoBD {
         Statement stmt = con.createStatement()){
             String query = "INSERT INTO POO.autos (puertas,marca,ceroKM,fecha_fabricacion) VALUES (3,'mercedes',0,'2004-07-07');";
             stmt.executeUpdate(query);
+            // stmt.executeQuery(query); caso de uso con CREATE table
             System.out.println("Persistio en base de datos.");
         } catch (SQLException e) {
             e.printStackTrace();
