@@ -11,7 +11,7 @@ class Auto extends Vehiculos implements Combustible{
         this.puertas = 5;
         this.marca = "ford";
         this.cerokm = false;
-        this.fechaFabricacion = "17/08/1990";
+        this.fechaFabricacion = "1990-08-17";
     }
 
     public Auto(
@@ -61,6 +61,14 @@ class Auto extends Vehiculos implements Combustible{
 
     public String getMarca(){
         return marca;
+    }
+
+    public boolean getCeroKM(){
+        return cerokm;
+    }
+
+    public String getFechaFabricacion(){
+        return fechaFabricacion;
     }
 
     public void setPuertas(int newPuertas){
