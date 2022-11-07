@@ -6,6 +6,9 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+// import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class AutoDTO {
 
@@ -26,25 +29,29 @@ public class AutoDTO {
         }
     }
 
-    public void getAutos(){
+    public Map<Integer, Auto> getAutos(){
+
+        AutoMapping autoMapping = new AutoMapping();
+        // ArrayList<Auto> autos = new ArrayList<Auto>();
+        Map<Integer, Auto> autosMap = new HashMap<Integer, Auto>();
     
         try(Connection con = DriverManager.getConnection(BD_Conexion, Usuario_BD, Contrasena_BD);
         Statement stmt = con.createStatement()){
             String query = "select * from poo.autos a ;";
             ResultSet result = stmt.executeQuery(query);
             while(result.next()){
+                int idBD = result.getInt("id_autos");
                 int puertaBD = result.getInt("puertas");
                 String marcaBD = result.getString("marca");
                 Boolean ceroKMBD = result.getBoolean("ceroKM");
                 Date fechaFabricacionBD = result.getDate("fecha_fabricacion");
-                System.out.println("puertas: " + puertaBD +
-                " marca: " + marcaBD +
-                " ceroKM: " + ceroKMBD +
-                " fechaFabricacion: " + fechaFabricacionBD);
+                // autos.add(autoMapping.mapAuto(puertaBD, marcaBD, ceroKMBD, fechaFabricacionBD));
+                autosMap.put(idBD, autoMapping.mapAuto(puertaBD, marcaBD, ceroKMBD, fechaFabricacionBD));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        return autosMap;
     }
     
     

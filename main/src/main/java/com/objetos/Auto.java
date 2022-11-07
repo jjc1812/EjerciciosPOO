@@ -30,6 +30,19 @@ class Auto extends Vehiculos implements Combustible{
         this.fechaFabricacion = newFechaFabricacion;
     }
 
+    public Auto(
+            int newPuerta, 
+            String newMarca, 
+            Boolean newCeroKM, 
+            String newFechaFabricacion
+        ){
+        super();
+        this.puertas = newPuerta;
+        this.marca = newMarca;
+        this.cerokm = newCeroKM;
+        this.fechaFabricacion = newFechaFabricacion;
+    }
+
     @Override
     public void patente() {
         System.out.println("ABC 123");
@@ -77,6 +90,14 @@ class Auto extends Vehiculos implements Combustible{
 
     public void setMarca(String newMarca){
         this.marca = newMarca;
+    }
+
+    public void setFechaFabricacion(String newFechaFabricacion){
+        this.fechaFabricacion = newFechaFabricacion;
+    }
+
+    public void setCeroKM(boolean newCeroKM){
+        this.cerokm = newCeroKM;
     }
 
     public String toString(){
