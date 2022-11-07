@@ -6,11 +6,15 @@ public class DemoBD {
 
     public static void main( String[] args ){
 
-        Auto a = new Auto();
-
+        Auto a = new Auto(0, "volvo", false, "2002-02-02");
+        Auto a1 = new Auto();
         AutoDTO autoDTO = new AutoDTO();
 
-        autoDTO.saveAuto(a.getPuertas(), a.getMarca(), a.getCeroKM(), a.getFechaFabricacion());
+        AutoService autoService = new AutoService();
+
+        autoService.validateAndSaveAuto(a);
+        autoService.validateAndSaveAuto(a1);
+
         Map<Integer, Auto> autosBase = autoDTO.getAutos();
 
         int x = 1;
@@ -18,6 +22,7 @@ public class DemoBD {
             System.out.println(autosBase.get(x).toString());
             x++;
         }
+        System.out.println(autoService.cantidadAutos());
     }
     
 }
