@@ -1,5 +1,6 @@
 package com.objetos;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 public class DemoBD {
@@ -15,7 +16,7 @@ public class DemoBD {
         autoService.validateAndSaveAuto(a);
         autoService.validateAndSaveAuto(a1);
 
-        Map<Integer, Auto> autosBase = autoDTO.getAutos();
+        ArrayList<Auto> autosBase = autoDTO.getAutos();
 
         int x = 1;
         while(x < 5){

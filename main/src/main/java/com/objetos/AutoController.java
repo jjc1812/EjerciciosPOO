@@ -2,6 +2,7 @@ package com.objetos;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -9,20 +10,31 @@ import org.json.simple.JSONObject;
 public class AutoController {
     
     public static void main( String[] args ){
-        JSONObject getAuto = new JSONObject();
 
-        getAuto.put("marca", "mercedes");
-        getAuto.put("puertas", 5);
-        getAuto.put("CeroKM", false);
-        getAuto.put("fechaFabricacion", "02/02/2002");
+        AutoService autoService = new AutoService();
 
-        JSONObject autos = new JSONObject();
+        ArrayList<Auto> autosBase = autoService.getAutos();
 
-        autos.put("auto", getAuto);
+        JSONObject auto = new JSONObject();
+
+        int x = 0;
+        while(x < autosBase.size() - 1) {
+
+            JSONObject getAuto = new JSONObject();
+
+            getAuto.put("marca", autosBase.get(x).getMarca());
+            getAuto.put("puertas", autosBase.get(x).getPuertas());
+            getAuto.put("CeroKM", autosBase.get(x).getCeroKM());
+            getAuto.put("fechaFabricacion", autosBase.get(x).getFechaFabricacion());
+
+            auto.put(x, getAuto);
+
+            x++;
+        }      
 
         JSONArray AutosList = new JSONArray();
 
-        AutosList.add(autos);
+        AutosList.add(auto);
 
         try(FileWriter file = new FileWriter("Autos.json")){
             file.write(AutosList.toJSONString());
