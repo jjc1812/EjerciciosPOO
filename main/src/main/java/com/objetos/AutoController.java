@@ -1,11 +1,13 @@
 package com.objetos;
 
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 public class AutoController {
     
@@ -40,6 +42,19 @@ public class AutoController {
             file.write(AutosList.toJSONString());
             file.flush();
         } catch (IOException e){
+            e.printStackTrace();
+        }
+
+        JSONParser jsonParser = new JSONParser();
+        AutoBuilder autoBuilder = new AutoBuilder();
+
+        try(FileReader reader = new FileReader("Auto.json")){
+            Object obj = jsonParser.parse(reader);
+            JSONArray jsonAuto = (JSONArray) obj;
+            Auto auto3 = autoBuilder.builderAuto((JSONObject)jsonAuto.get(0));
+            autoService.validateAndSaveAuto(auto3);
+
+        } catch (Exception e){
             e.printStackTrace();
         }
     }
