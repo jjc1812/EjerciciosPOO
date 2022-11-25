@@ -10,10 +10,10 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 public class AutoController {
-    
-    public static void main( String[] args ){
 
-        AutoService autoService = new AutoService();
+    AutoService autoService = new AutoService();
+
+    public void getAutos(){
 
         ArrayList<Auto> autosBase = autoService.getAutos();
 
@@ -44,6 +44,9 @@ public class AutoController {
         } catch (IOException e){
             e.printStackTrace();
         }
+    }
+
+    public void postAuto(){
 
         JSONParser jsonParser = new JSONParser();
         AutoBuilder autoBuilder = new AutoBuilder();

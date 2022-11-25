@@ -7,8 +7,11 @@ package com.objetos;
 public class App 
 {
 
-    public static void main( String[] args )
-    {
-        System.out.println( "Hola mundo!");
+    public static void main( String[] args ){
+        AutoController autoController = new AutoController();
+
+        autoController.getAutos();
+
+        autoController.postAuto();
     }
 }
